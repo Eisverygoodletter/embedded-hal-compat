@@ -112,7 +112,7 @@ mod delay {
         T: eh1_0::delay::DelayNs,
     {
         fn delay_ms(&mut self, ms: u8) {
-            self.inner.delay_us(ms as u8 * 1000)
+            self.inner.delay_us(ms as u32 * 1000)
         }
     }
     
