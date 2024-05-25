@@ -107,7 +107,15 @@ mod digital {
 /// Delays (blocking)
 mod delay {
     use super::Reverse;
-
+    impl<T> eh0_2::blocking::delay::DelayMs<u8> for Reverse<T>
+    where
+        T: eh1_0::delay::DelayNs,
+    {
+        fn delay_ms(&mut self, ms: u8) {
+            self.inner.delay_us(ms as u8 * 1000)
+        }
+    }
+    
     impl<T> eh0_2::blocking::delay::DelayMs<u32> for Reverse<T>
     where
         T: eh1_0::delay::DelayNs,
