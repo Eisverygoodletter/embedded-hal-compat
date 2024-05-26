@@ -8,6 +8,7 @@ use core::fmt::Debug;
 /// Reverse compatibility container object.
 /// This is generic over different E-H types and will provide adaption
 /// depending on the bound type.
+#[derive(Debug)]
 pub struct Reverse<T> {
     inner: T,
 }
